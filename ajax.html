@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo1" class="demo">0</div>
+
+		<button id="btn" type="button" onclick="fun1()">click 111111</button>
+		<button type="button" onclick="fun2()">click 22222</button>
+		<script>
+			
+			var xmlhttp;
+			var ele = document.getElementById("demo1");
+
+			function loadDoc(moth, url, async, callFun) {
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = callFun;
+				xmlhttp.open(moth, url, async);
+				xmlhttp.send();
+			}
+
+			function fun1() {
+				loadDoc("GET", "./data/text.json", true, function(res) {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						res = JSON.parse(xmlhttp.responseText);
+						ele.innerHTML = res.seller.name;
+					}
+				})
+			}
+
+			function fun2() {
+				loadDoc("GET", "./data/text.json", true, function(res) {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						res = JSON.parse(xmlhttp.responseText);
+						ele.innerHTML = res.seller.description;
+					}
+				})
+			}
+		</script>
+
+	</body>
+
+</html>
