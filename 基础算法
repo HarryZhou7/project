@@ -1,0 +1,83 @@
+基础算法的JS实现
+十进制转2-9进制
+function convert（n，base）{
+    var s = [];
+    做{
+      s.unshift（N％基峰）;
+      N = Math.floor（N /碱）;
+    }而（N> 0）
+    return Number（s.join（''））;
+  }
+  
+任意进制转换
+ function convert（n，base，j = 10）{
+    如果（j！= 10）{
+      N = n.toString（）;
+      var s = n.split（''）。reverse（），num = 0;
+      s.forEach（函数（V，I）{
+        NUM + = Math.pow（J，I）*数目（v）的
+      }）
+      N = NUM​​;
+    }
+    N =转换（N，基峰）;
+    返回n;
+  }
+  
+//console.log(converts(12,3,6））;
+
+数组去重
+功能删除（n）{
+    var arr = [];
+    //自己封装的的indexOf方法，类比的indexOf（）
+    var indexof = function（x，y）{
+      var index = -1;
+      x.forEach（（V，I）=> {
+        如果（Y == v）的{
+           指数= I;
+        }
+      }）
+      回报指数;
+    }
+    n.forEach（函数（V，I）{
+      如果（的indexOf（ARR，V）<0）{
+        arr.push（五）
+      }
+    }）
+    返回
+  }
+//console.log(removal([1,2,3,2,1]））
+
+排序之冒泡排序
+function bubbleSort（arr）{
+    for（i = 1; i <arr.length; i ++）{
+      for（j = 0; j <arr.length-i; j ++）{
+        var temp = 0;
+        if（arr [j]> arr [j + 1]）{
+          温度= ARR [j]的
+          ARR [J] = ARR [J + 1]
+          ARR [J + 1] =温度
+        }
+      }
+    }
+    返回
+  }
+//console.log(bubbleSort([3,4,2,1,5,8,2]））
+
+随机生成哈希值
+ function randomWord（n）{
+    var str =''
+    arr = ['0'，'1'，'2'，'3'，'4'，'5'，'6'，'7'，'8'，'9'，'A'，'B' ，'C'，'D'，'E'，'F'，'G'，'H'，'I'，'J'，'K'，'L'，'M'，'N'，' O'，'P'，'Q'，'R'，'S'，'T'，'U'，'V'，'W'，'X'，'Y'，'Z']
+    //随机产生
+    for（var i = 0; i <n; i ++）{
+      POS = Math.round（的Math.random（）*（arr.length-1））;
+      STR + = ARR [POS];
+    }
+    返回str ;;
+  }
+  function getHash（）{
+    var timestamp = new Date（）。getTime（）;
+    var myRandom = randomWord（6）
+    var hashcode = myRandom + timestamp;
+    返回哈希码;
+  }
+//console.log（getHash（））;
